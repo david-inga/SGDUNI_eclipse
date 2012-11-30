@@ -1,0 +1,310 @@
+/****************/
+.formulariosA1 .txtForm1{
+	font-family:Verdana, Geneva, sans-serif; color:#666; font-size:11px;
+}
+.formulariosA1 fieldset label{
+	width: 100px;
+	display: block;
+	float:left;
+	background-color:#F3F3F3;
+	padding-top:7px; padding-bottom:2px; padding-left:5px; padding-right:2px;	
+	margin:1px;
+	cursor:pointer;
+	font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#333; height:21px;
+}
+
+.formulariosA1 fieldset label:hover {
+	background-color:#E8E8E8; 
+	cursor:pointer;
+}
+
+.formulariosA1 fieldset input{
+	margin:1px;
+	font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#333; height:20px;
+	border:#666 solid 1px;
+	width:95%;
+    background-color:#FFF;
+}
+.formulariosA1 fieldset input:hover{
+    background-color:#FFF;
+}
+
+.formulariosA1 fieldset input:focus{
+    background-color:#FFC;
+}
+
+
+.formulariosA1 fieldset select{
+	margin:1px;	
+	font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#333;
+	border:#999 solid 1px;
+
+}
+.formulariosA1 fieldset textarea{
+	margin:1px;	
+	font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#333;
+	border:#999 solid 1px;
+    background-color:#FFF;
+    width:96%;
+}
+.formulariosA1 fieldset textarea:hover{
+background-color:#FFF;
+}
+.formulariosA1 fieldset textarea:focus{
+  background-color:#FFC;
+}
+
+
+.formulariosA1 fieldset{
+	/*border:none;*/
+	border:#CCC solid 1px; padding:8px; margin:2px;
+}
+.formulariosA1 fieldset legend{
+	font-family:Verdana, Geneva, sans-serif; color:#333; font-size:12px; font-weight:bold; padding-top:5px; padding-bottom:5px;
+}
+.formulariosA1 fieldset span{
+	font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#666;
+}
+.formulariosA1 .linkfrm a{
+  color:#999; font-family:Verdana, Geneva, sans-serif; font-size:11px; text-decoration:none;
+}
+.formulariosA1 .linkfrm a:hover{
+  text-decoration:underline; color:#333;
+}
+
+
+.botonEstandar{
+		font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#ffffff; background-color:#ff7b18;
+		padding:4px; border:#DB730B solid 1px; cursor:pointer; margin:3px;
+}
+.botonEstandarDisp{
+		font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#ffffff; background-color:#999;
+		padding:4px; border:#666 solid 1px; cursor:pointer;margin:3px;
+
+}
+
+.BotonStan1{
+      background: url(data:image/gif;base64,R0lGODlhAgAXAMQAAO7v7+Tm5uvt7eXn5/Lz8+/w8Ozu7unr6/Dx8e3v7+rs7Ofp6fT19ejq6vX29ubo6PP09PHy8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAACABcAAAUioCM6DAOdEEFEbIQgRQEASWIYgqAox9H8jcXiQXwMBoFACAA7);background-repeat:repeat-x; background-position:bottom;
+	  font-size:11px; font-family:Verdana, Geneva, sans-serif; color:#333;
+	  padding:4px;
+	  display:inline-block;
+	  text-decoration:none;
+	  cursor:pointer; border:#999999 solid 1px;
+}
+.BotonStan2{
+      background: url(data:image/gif;base64,R0lGODlhAwATAMQAAAAAAP///wF3uAF1tgJ9wAJ6vQJ5ugOBxwN/xASGzwWL1gSEywaQ3QWJ0geU5AeS4QaO2gia7QiZ6wiY6QiW5////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABUALAAAAAADABMAAAUfYCRK5GRSqKM+LONCsCI3dGIv+KEjPOEXQINQQBwYQwA7);background-repeat:repeat-x; background-position:bottom;
+	  font-size:11px; font-family:Verdana, Geneva, sans-serif; color:#fff;
+	  padding:4px;
+  	  display:inline-block;
+	  background-color:#089aed;
+  	  text-decoration:none;
+	  cursor:pointer; border:#006ca5 solid 1px;
+}
+.paddingCmd{
+	padding:12px;
+}
+.barra_menu_grilla{
+	margin:2px; clear:both;
+	padding:2px;
+}
+
+#divEstylRedonA1{
+	margin:0px auto;  
+	border:#666 solid 5px;
+	   -moz-border-radius:10px;
+	   -khtml-border-radius: 10px;
+	   -webkit-border-radius:10px;
+	   border-radius: 10px;
+}
+
+.txtError1{
+	font-family:Verdana, Geneva, sans-serif; color:#F00 ; font-size:14px; font-weight:bold; padding:4px;
+}
+/*GRILLA RESULTADOS*/
+#DivGrillaResul{
+	width:800px; margin:0px auto;
+	clear:both;
+}
+#DivGrillaResul table{
+	border:#CCC solid 1px;
+}
+
+#DivGrillaResul table tr{
+	background-color:#F7F7F7
+}
+#DivGrillaResul table img{
+	cursor:pointer;
+}
+
+#DivGrillaResul table tr{
+	background-color:#FFF;
+}
+
+#DivGrillaResul table tr:hover{
+	background-color:#EFEFEF;
+}
+
+#DivGrillaResul table .titu{
+	font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#707070;
+}
+#DivGrillaResul table .titu_tabla{
+	text-align:center;
+	background-color:#E5E5E5;
+	font-weight:bold;
+	height: 45px;
+}
+#DivGrillaResul table .row{
+	text-align:center;
+	background-color:#E5E5E5;
+}
+#DivGrillaResul table .textCont{
+	font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#4E4E4E;
+}
+#DivGrillaResul table .textCont_Sub{
+	font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#4E4E4E; padding-left: 20px;
+}
+#DivGrillaResul div{
+	font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#4293EC;display:block;
+}
+#DivGrillaResul #paginacion {
+	list-style:none;
+	margin:0px;
+	padding:0px;
+	}
+	#paginacion li {	
+	margin:1px;	
+	padding:0px;
+	float:left;
+	}
+	#paginacion li a {
+	display:block;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:1px;
+	padding-bottom:1px;	
+	text-decoration:none;
+	text-align:center;
+	font-size:12px;
+	color:#333333;	
+	}
+	#paginacion li a:hover{
+	  color:#3894EF;	
+	}
+	#paginacion li b{
+	display:block;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:1px;
+	padding-bottom:1px;	
+	text-align:center;
+	font-size:12px;
+	color:#3894EF;
+	}
+	#paginacion li span{
+	display:block;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:1px;
+	padding-bottom:1px;
+	text-align:center;
+	font-size:12px;
+	color:#3894EF;
+	}
+/**/
+#DivGrillaResul2{
+	clear:both; margin:1px auto;		
+}
+#DivGrillaResul2 table{
+	border:#CCCCCC dotted 1px;
+}
+#DivGrillaResul2 table .titu{
+	font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#707070;
+}
+#DivGrillaResul2 table .textCont{
+	font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#4E4E4E;
+}
+#DivGrillaResul2 #ContPag{
+	clear:both;
+}
+#DivGrillaResul2 #ContPag #divPaginas{
+	float:left; 
+}
+#DivGrillaResul2 #ContPag #divTexPaginas{
+   float:left; margin-top:8px; font-family:Verdana, Geneva, sans-serif; font-size:12px; color:#999;
+}
+#DivGrillaResul2 #paginacion {
+	list-style:none;
+	margin:0px;
+	padding:0px;
+	}
+	#paginacion li {	
+	margin:1px;	
+	padding:0px;
+	float:left;
+	}
+	#paginacion li a {
+	display:block;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:1px;
+	padding-bottom:1px;	
+	text-decoration:none;
+	text-align:center;
+	font-size:12px;
+	color:#333333;	
+	}
+	#paginacion li a:hover{
+	  color:#3894EF;	
+	}
+	#paginacion li b{
+	display:block;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:1px;
+	padding-bottom:1px;	
+	text-align:center;
+	font-size:12px;
+	color:#3894EF;
+	}
+	#paginacion li span{
+	display:block;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:1px;
+	padding-bottom:1px;
+	text-align:center;
+	font-size:12px;
+	color:#3894EF;
+	}
+
+/*FIN GRILLA RESULTADOS*/
+
+.texBox1{
+	font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#666; background-color:#F8F8F8; border:#CCC solid 2px;
+}
+.texBox1:hover{
+	background-color:#FFF;
+}
+
+.producto_img
+{
+	padding:5px; background-color:white;text-align:center; float:left; display:block;
+	border:solid 1px #C1BCAB; margin-top:5px; margin-bottom:5px; margin-left:0px; margin-right:5px;border-radius:4px;
+}
+
+.producto_img .descripcion
+{
+	text-align:left; background-color:#F3F3F3; padding:5px; margin-top:5px; border-radius:4px;
+}
+
+.formBody{
+	clear:both;background:#FFF; margin:0px auto;
+	padding-left:8px; padding-right:8px; padding-bottom:8px; padding-top:4px;
+	box-shadow: 2px 2px 5px #CCC;
+}

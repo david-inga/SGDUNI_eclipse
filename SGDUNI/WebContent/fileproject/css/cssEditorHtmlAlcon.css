@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+
+   .editorHtml{
+	   margin:0px;
+	   padding:0px;
+	}
+	.editorHtml li{
+		list-style:none;
+		float:left;
+		margin:2px;				
+	}
+	.editorHtml #html_n{
+		background-image:url(../img/sistema/editor_html/ico_n.gif); background-repeat:no-repeat; background-position:0px -21px;
+		height:20px; width:20px;
+		cursor:pointer;
+	}
+	.editorHtml #html_s{
+		background-image:url(../img/sistema/editor_html/ico_u.gif); background-repeat:no-repeat; background-position:0px -21px;
+		height:20px; width:20px;
+		cursor:pointer;
+	}
+	.editorHtml #html_i{
+		background-image:url(../img/sistema/editor_html/ico_i.gif); background-repeat:no-repeat; background-position:0px -21px;
+		height:20px; width:20px;
+		cursor:pointer;
+	}
+
+	.editorHtml #html_ancla{
+		background-image:url(../img/sistema/editor_html/ico_anclaje.gif); background-repeat:no-repeat; background-position:0px -21px;
+		height:20px; width:20px;
+		cursor:pointer;
+	}
+	.editorHtml #html_link{
+		background-image:url(../img/sistema/editor_html/ico_link.gif); background-repeat:no-repeat; background-position:0px -21px;
+		height:20px; width:20px;
+		cursor:pointer;
+	}
+	
+

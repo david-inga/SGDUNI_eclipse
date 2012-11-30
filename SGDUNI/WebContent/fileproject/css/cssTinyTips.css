@@ -1,0 +1,19 @@
+@charset "utf-8";
+/*p{ color: #616161; }
+a { color: #f1f1f1; }
+img.tTip { margin: 8px 15px 8px 0px; float: left; }
+h1 { text-align: center; line-height: 15px; padding: 0px 0px 20px 0px; letter-spacing: -2px; }
+h1.massive { font-size: 72px; line-height: 10px; padding: 0px; letter-spacing: -6px; color: #f4c20a; }
+#demo_wrapper { width: 600px; margin: 30px auto 0px auto; }
+*/
+/*.tinyTip { width: 325px; padding: 17px 0px 0px 0px; display: block; background: url(../img/tooltip/tinyTip-top.png) 0px 0px no-repeat; }
+.tinyTip .content { padding: 0px 15px 0px 15px; font-size: 14px; font-family: "Lucida Sans Unicode"; color: #010101;  background: url(../img/tooltip/tinyTip-content.png) 0px 0px repeat-y; }
+.tinyTip .bottom { height: 47px; background: url(../img/tooltip/tinyTip-bottom.png) 0px 0px no-repeat; font: 0px/0px sans-serif; }*/
+
+.tinyTip { padding: 14px 0px 0px 0px; display: block;}
+.tinyTip .top{ background:#2b2b2b;}
+.tinyTip .content { padding: 3px 15px 3px 15px; font-size: 12px; font-family:Arial, Helvetica, sans-serif; color: #ffffff; background:#2b2b2b;}
+
+.tinyTip .FlechBottomLeft { height: 5px; background: url(../img/tooltip/icoBottom2.gif); background-repeat:no-repeat; background-position:10%;}
+.tinyTip .FlechBottomCenter { height: 5px; background: url(../img/tooltip/icoBottom2.gif); background-repeat:no-repeat; background-position:center;}
+.tinyTip .FlechBottomRight { height: 5px; background: url(../img/tooltip/icoBottom2.gif); background-repeat:no-repeat; background-position:90%;}

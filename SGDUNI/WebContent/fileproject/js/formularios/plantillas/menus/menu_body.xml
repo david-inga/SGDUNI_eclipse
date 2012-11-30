@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : menu_body.xml
+    Created on : 13 de diciembre de 2011, 12:19
+    Author     : Sistemas
+    Description:
+        Purpose of the document follows.
+-->
+<menuAdminBody idClass="menuBody">
+
+   <submenu1>
+      <menu idMat="ini" nom="Gestionar usuarios" enlace="listarUsuario.uni" target="" buscarDB="false" icono="icoGestClientes.gif" ></menu>
+      <menu idMat="doc" nom="Gestionar protocolos" enlace="listarRoles.uni" target="" buscarDB="false" icono="icoProtocolos.gif"></menu>
+      <menu idMat="rep" nom="Asignar protocolos a usuarios" enlace="asignarRolUsuario.uni" target="" buscarDB="false" icono="icoAdminWiki40x40.png"></menu>
+      <menu idMat="fun" nom="Asignar Funcionalidades a los Protocolos" enlace="asignarFunRol.uni" target="" buscarDB="false" icono="icoProtocoloFuncionalidad.gif"></menu>
+
+      <menu idMat="orgen_ta_usuario_conf_flujo" nom="Gestionar Usuario - Configuraciòn Flujo " enlace="usuarioConfigFlujoNuevo.uni" target="" buscarDB="false" icono="icoGestPag.gif"></menu>
+      <!--
+      <menu idMat="orgen_ta_flujo_doc" nom="Gestionar Flujo - Documento" enlace="configFlujoDocumentoNuevo.uni" target="" buscarDB="false" icono="icoGestPag.gif"></menu>
+      -->
+   </submenu1>
+
+    <submenu2>
+        <menu idMat="rep" nom="Gestionar Facultades" enlace="listarFacultad.uni" target="" buscarDB="false" icono="icoFacultad.gif"></menu>
+        <menu idMat="gestorg" nom="Gestionar Organos" enlace="listarOrgano.uni" target="" buscarDB="false" icono="icoOrganos.gif"></menu>
+        <menu idMat="gestdep" nom="Gestionar Dependencias" enlace="listarDependencia.uni" target="" buscarDB="false" icono="icoDependencias.gif"></menu>
+        <menu idMat="gestsubdep" nom="Gestionar Sub-Dependencias" enlace="listarSubDependencia.uni" target="" buscarDB="false" icono="icoSubDependencias.gif"></menu>
+        <menu idMat="gestcar" nom="Gestionar Cargos Clasificados" enlace="listarCargoClasificado.uni" target="" buscarDB="false" icono="icoGestClientes.gif"></menu>
+        <menu idMat="gestcar" nom="Gestionar Cargos Estructurales" enlace="listarCargoEstructural.uni" target="" buscarDB="false" icono="icoGestClientes.gif"></menu>
+        <menu idMat="gestcar" nom="Gestionar Clasificación de Cargos Estructurales" enlace="listarClasiCargo.uni" target="" buscarDB="false" icono="icoCargos.gif"></menu>
+        <menu idMat="gestar" nom="Gestionar Áreas" enlace="listarArea.uni" target="" buscarDB="false" icono="icoGestcompany.gif"></menu>
+        <menu idMat="gestuni" nom="Gestionar Unidades" enlace="listarUnidad.uni" target="" buscarDB="false" icono="icoGestPro2.gif"></menu>
+        <menu idMat="gestpro" nom="Gestionar Procedimientos" enlace="listarProcedimiento.uni" target="" buscarDB="false" icono="icoGestPag.gif"></menu>
+        <menu idMat="gestreq" nom="Gestionar Requisitos" enlace="listarRequisitos.uni" target="" buscarDB="false" icono="icoGestPag.gif"></menu>
+
+    </submenu2>
+
+    <submenu6>
+      <menu idMat="crearmof" nom="Manual de Organizaciones y Funciones (MOF)" enlace="nuevoMof.uni" target="" buscarDB="false" icono="icoDocumentMof.gif" ></menu>
+      <menu idMat="crearrof" nom="Reglas de Organización y Funciones ROF" enlace="nuevoRof.uni" target="" buscarDB="false" icono="icoDocumRof.gif"></menu>
+      <menu idMat="crearmapro" nom="Mapa de Procesos MAPRO" enlace="nuevoMapro.uni" target="" buscarDB="false" icono="icoDocumentMapro.gif"></menu>
+
+      <menu idMat="creardir" nom="Directivas" enlace="javascript:;" target="" buscarDB="false" icono="icoDocumDirectivas.gif" ></menu>
+      <menu idMat="creartupa" nom="Oficio Circular" enlace="oficioCircularListar.uni" target="" buscarDB="false" icono="icoOficio.gif"></menu>
+      <menu idMat="crearcap" nom="Cuadro de Asignación de Personal CAP" enlace="llamarFormInsertCap.uni" target="" buscarDB="false" icono="icoDocumCAP.gif"></menu>
+      <menu idMat="crearcap" nom="Texto Único de Procedimientos Administrativos (TUPA)" enlace="javascript:;" target="" buscarDB="false" icono="icoDocumTupac.gif"></menu>
+      <menu idMat="crearcap" nom="Resoluación Rectoral" enlace="resolucionRectoralNuevo.uni" target="" buscarDB="false" icono="icoDocumRectorado.gif"></menu>
+
+  </submenu6>
+
+    <tramites>
+      <menu idMat="ini_tramite" nom="Iniciar Trámite" enlace="tramiteDocumentosNuevo.uni" target="" buscarDB="false" icono="icoTramIniciar.gif" ></menu>
+      <menu idMat="consul_tramite" nom="Consultar Trámite" enlace="tramiteDocumentosListar.uni" target="" buscarDB="false" icono="icoTramConsultar.gif"></menu>
+        </tramites>
+</menuAdminBody>

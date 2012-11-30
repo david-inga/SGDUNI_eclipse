@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+    <data-sources>
+<!-- 1RO CONFIGURAR EL DATASOURCE ahora agregar a la carpeta /bin el .jar commons-->
+
+        <data-source type="org.apache.commons.dbcp.BasicDataSource" key="DSconnection">
+            <set-property property="driverClassName" value="com.mysql.jdbc.Driver" />
+            <set-property property="url" value="jdbc:mysql://localhost/sgduni" />
+            <set-property property="username" value="root" />
+            <set-property property="password"  value="root"/>
+        </data-source>
+
+    </data-sources>
+
+    <form-beans>
+        <form-bean name="orpro_ta_observaciones_rof" type="com.sgduni.forms.orpro_ta_observaciones_rof"/>
+        <form-bean name="orpro_ta_observacion_oficio" type="com.sgduni.forms.orpro_ta_observacion_oficio"/>
+        <form-bean name="orpro_ta_rof_unidad_area" type="com.sgduni.forms.orpro_ta_rof_unidad_area"/>
+        <form-bean name="orpro_ta_registro_rof" type="com.sgduni.forms.orpro_ta_registro_rof"/>
+        <form-bean name="orpro_ta_rof_funciones_generales" type="com.sgduni.forms.orpro_ta_rof_funciones_generales"/>
+        <form-bean name="orpro_ta_base_legal_rof" type="com.sgduni.forms.orpro_ta_base_legal_rof"/>
+        <form-bean name="orpro_ta_rof_directiva" type="com.sgduni.forms.orpro_ta_rof_directiva"/>
+        <form-bean name="orpro_ta_estruc_org_oficio" type="com.sgduni.forms.orpro_ta_estruc_org_oficio"/>
+        <form-bean name="orpro_ta_versiones_estruc" type="com.sgduni.forms.orpro_ta_versiones_estruc"/>
+        <form-bean name="orgen_ta_estructura_organica" type="com.sgduni.forms.orgen_ta_estructura_organica"/>
+        <form-bean name="orpro_ta_observacion_estruc"    type = "com.sgduni.forms.orpro_ta_observacion_estruc"/>
+        <form-bean name="orgen_ta_usuario_cargo" type="com.sgduni.forms.orgen_ta_usuario_cargo"/>
+        <form-bean name="orpro_detalle_base_legal" type="com.sgduni.forms.orpro_detalle_base_legal"/>
+        <form-bean name="orpro_detalle_normas_gen" type="com.sgduni.forms.orpro_detalle_normas_gen"/>
+        <form-bean name="orpro_detalle_objetivo_direc" type="com.sgduni.forms.orpro_detalle_objetivo_direc"/>
+        <form-bean name="orpro_ta_directivas" type="com.sgduni.forms.orpro_ta_directivas"/>
+        <form-bean name="orgen_ta_cargo_usuario" type = "com.sgduni.forms.orgen_ta_cargo_usuario"/>
+        <form-bean name="orgen_ta_funcionalidad"     type="com.sgduni.forms.orgen_ta_funcionalidad"/>
+        <form-bean name="orgen_ta_rol_fun"          type="com.sgduni.forms.orgen_ta_rol_fun"/>
+        <form-bean name="orgen_ta_dependencia"     type="com.sgduni.forms.orgen_ta_dependencia"/>
+        <form-bean name="orgen_ta_facultad"        type = "com.sgduni.forms.orgen_ta_facultad"/>
+        <form-bean name="orgen_ta_cargo"           type = "com.sgduni.forms.orgen_ta_cargo"/>
+        <form-bean name="orgen_ta_organo"          type = "com.sgduni.forms.orgen_ta_organo"/>
+        <form-bean name="orgen_ta_usuario_rol_fun" type = "com.sgduni.forms.orgen_ta_usuario_rol_fun"/>
+        <form-bean name="orgen_ta_usuario_lista"   type = "com.sgduni.forms.orgen_ta_usuario_lista"/>
+        <form-bean name="orgen_ta_usuario_login"   type = "com.sgduni.forms.orgen_ta_usuario_login"/>
+        <form-bean name="orgen_ta_usuario"         type = "com.sgduni.forms.orgen_ta_usuario"/>
+        <form-bean name="orgen_ta_rol"             type = "com.sgduni.forms.orgen_ta_rol"/>
+        <form-bean name="orpro_oficio_circular"    type = "com.sgduni.forms.orpro_oficio_circular"/>
+        <form-bean name="orpro_ta_rof"             type = "com.sgduni.forms.orpro_ta_rof"/>
+    </form-beans>
+    
+    <global-exceptions>
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="updateuser"  path="/modificarusuario.uni"/>
+        <forward name="login" path="/login.uni"/><!--alcon-->
+    </global-forwards>
+
+    <action-mappings>
+
+       <!-- USUARIO  -->
+
+        <action path="/registrarusuario" forward="/pagina_test/usuario_pagina_registrar.jsp"/>
+
+        <action path="/registrarUsuario" type="com.sgduni.actions.Usuario_insertar" name="orgen_ta_usuario" scope="request">
+            <forward name="registrar" path="/pagina_test/usuario_pagina_registrar.jsp"/>
+        </action>
+        
+        <action name="orgen_ta_usuario_lista" path="/listarUsuario" scope="request" type="com.sgduni.actions.Usuario_listar">
+             <forward name="listado" path="/pagina_test/usuario_pagina_listar.jsp"/>
+        </action>
+
+        <action input="/" name="orgen_ta_usuario" path="/modUsuario" scope="request" type="com.sgduni.actions.Usuario_modificar">
+            <forward name="modificar" path="/pagina_test/usuario_pagina_modificar.jsp"/>
+        </action>
+
+        <action input="/" name="orgen_ta_usuario" path="/actualizarUsuario" scope="request" type="com.sgduni.actions.Usuario_Actualizar">
+            <forward name="exitoso" path="/pagina_test/usuario_pagina_modificar.jsp"></forward>
+        </action>
+
+        <action input="/" name="orgen_ta_usuario" path="/cambiarEstadoUsuario" scope="request" type="com.sgduni.actions.ajax.CambiarEstadoUsuario"/>
+
+       <action input="/" name="orgen_ta_usuario" path="/comprobarExisteCreaUsuario" scope="request" type="com.sgduni.actions.ajax.ComprobarExisteCreaUsuario"/>
+
+        <action input="/" name="orgen_ta_funcionalidad" path="/asignarFunRol" scope="request" type="com.sgduni.actions.Rol_Funcionalidad_Asigna">
+           <forward name="asignar" path="/pagina_test/Rol_asignar_funcionalidad_pagina.jsp"/>
+        </action>
+
+        <!--GUARDAR ROL FUNCIONALIDAD -->
+        
+        <action input="/" name="orgen_ta_funcionalidad" path="/guardarAsignacionRolFuncionalidad" scope="request" type="com.sgduni.actions.Rol_Funcionalidad_Asigna_Guardar">
+           <forward name="asignar" path="/pagina_test/Rol_asignar_funcionalidad_pagina.jsp"/>
+        </action>
+
+        <!-- ASIGNAR ROL A USUARIO  -->
+
+        <action input="/" name="orgen_ta_usuario" path="/asignarRolUsuario" scope="request" type="com.sgduni.actions.Rol_Usuario_Asignar">
+            <forward name="asignar" path="/pagina_test/Usuario_Asignar_Rol_pagina.jsp"/>
+        </action>
+        <action input="/" name="orgen_ta_usuario_login" path="/guardarAsignacionRolUsuario" scope="request" type="com.sgduni.actions.Rol_Usuario_Asignar_Guardar">
+           <forward name="lista" path="/asignarRolUsuario.uni"/>
+        </action>
+
+       <!--LOGUEO-->
+
+       <action input="/" name="orgen_ta_usuario" path="/logear" scope="session" type="com.sgduni.actions.LoginAction">
+            <forward name="ok" path="/oficioCircularListar.uni?nump=1"></forward>
+            <forward name="error" path="/login.uni"></forward>
+       </action>
+       
+       <action input="/" name="orgen_ta_rol" path="/listarRolesUserLogeado" scope="request" type="com.sgduni.actions.ajax.ListaRolesUsuarioLogueado">
+            <forward name="listado" path="/paginas/ajax/ListaRolesUsuarioLogueado.jsp"/>
+       </action>
+
+    <!-- ORGANO  -->
+
+   <action path="/registrarorgano" name="orgen_ta_organo" forward="/pagina_test/organo_pagina_insertar.jsp"/>
+
+   <action input="/" name="orgen_ta_organo" path="/listarOrgano" scope="request" type="com.sgduni.actions.Organo_listar">
+        <forward name="listarOrgano" path="/paginas/Organo_listar.jsp"/>
+    </action>
+    
+    <action input="/" name="orgen_ta_organo" path="/insertarOrgano" scope="request" type="com.sgduni.actions.Organo_insertar">
+        <forward name="registrarorgano" path="/pagina_test/organo_pagina_insertar.jsp"/>
+    </action>
+
+    <action input="/" name="orgen_ta_organo" path="/actualizarOrgano" scope="request" type="com.sgduni.actions.Organo_Actualizar">
+        <forward name="exitoso" path="/paginas/Organo_modificar.jsp"/>
+    </action>
+
+    <action input="/" name="orgen_ta_organo" path="/modificarOrgano" scope="request" type="com.sgduni.actions.Organo_modificar">
+        <forward name="modificar" path="/paginas/Organo_modificar.jsp"/>
+    </action>
+    
+    <action input="/" name="orgen_ta_organo" path="/cambiarEstadoOrgano" scope="request" type="com.sgduni.actions.ajax.CambiarEstadoOrgano"/>
+
+   <!-- FACULTAD  -->
+
+    <action input="/" name="orgen_ta_facultad" path="/listarFacultad" scope="request" type="com.sgduni.actions.Facultad_listar">
+         <forward name="listado" path="/pagina_test/facultad_pagina_listar.jsp"/>
+    </action>
+
+    <action input="/" name="orgen_ta_facultad" path="/insertarFacultad" scope="request" type="com.sgduni.actions.Facultad_insert">
+        <forward name="registrarFacultad" path="/pagina_test/facultad_pagina_insertar.jsp"/>
+    </action>
+
+    <action input="/" name="orgen_ta_facultad" path="/llamarFormInsertar" scope="request" type="com.sgduni.actions.Facultad_insertar_llamarForm">
+        <forward name="registrarFacultad" path="/pagina_test/facultad_pagina_insertar.jsp"/>
+    </action>
+
+    <action input="/" name="orgen_ta_facultad" path="/actualizarFacultad" scope="request" type="com.sgduni.actions.Facultad_Actualizar">
+        <forward name="exitoso" path="/pagina_test/facultad_pagina_modificar.jsp"/>
+    </action>
+    
+    <action input="/" name="orgen_ta_facultad" path="/modificarFacultad" scope="request" type="com.sgduni.actions.Facultad_Modificar">
+       <forward name="modificar" path="/pagina_test/facultad_pagina_modificar.jsp" />
+    </action>
+
+    <action input="/" name="orgen_ta_facultad" path="/cambiarEstadoFacultad" scope="request" type="com.sgduni.actions.ajax.CambiarEstadoFacultad"/>
+
+   <!-- DEPENDENCIA  -->
+
+    <action input="/" name="orgen_ta_dependencia" path="/listarDependencia" scope="request" type="com.sgduni.actions.Dependencia_listar">
+        <forward name="listado" path="/pagina_test/dependencia_pagina_listar.jsp"/>
+    </action>
+
+    <action input="/"  name="orgen_ta_dependencia" path="/cambiarEstadoDependencia"    scope="request"  type="com.sgduni.actions.ajax.CambiarEstadoDependencia"/>
+
+    <action input="/"  name="orgen_ta_dependencia" path="/insertDependencia"           scope="request" type="com.sgduni.actions.Dependencia_insert">
+        <forward name="registrar" path="/pagina_test/dependencia_pagina_insert.jsp"/>
+    </action>
+
+    <action input="/"  name="orgen_ta_dependencia" path="/llamarFormInsertDependencia" scope="request" type="com.sgduni.actions.Dependencia_insert_llamarForm">
+        <forward name="registrarDependencia" path="/pagina_test/dependencia_pagina_insert.jsp"/>
+    </action>
+
+    <action input="/" name="orgen_ta_dependencia" path="/modificarDependencia" scope="request" type="com.sgduni.actions.Dependencia_modificar">
+        <forward name="modificarDep" path="/pagina_test/dependencia_pagina_modificar.jsp"/>
+    </action>
+
+    <action input="/" name="orgen_ta_dependencia" path="/actualizarDependencia" scope="request" type="com.sgduni.actions.Dependencia_actualizar">
+        <forward name="modificarDependencia" path="/pagina_test/dependencia_pagina_modificar.jsp"/>
+    </action>
+
+    <!--  DIRECTIVAS  -->
+
+    <action input="/" name="orpro_det_proc_direc" path="/listarProcedimientosDirectivas" scope="request" type="com.sgduni.actions.Directivas_ListarProcedimientos">
+            <forward name="listado" path="/paginas/directivas_listar_procedimientos.jsp"/>
+        </action>
+
+     <action input="/" name="orpro_ta_directivas" path="/llamarFormInsertDirectiva" scope="request" type="com.sgduni.actions.Directivas_llamarFormInsert">
+             <forward name="exitoso" path="/pagina_test/directivas_pagina_insertar.jsp"/>
+     </action>
+
+       <action input="/" name="orpro_ta_directivas" path="/insertarDirectivas" scope="request" type="com.sgduni.actions.Directivas_insertar">
+           <forward name="registrarDirectiva" path="/pagina_test/directivas_pagina_insertar.jsp"/>
+       </action>
+
+    <action input="/" name="orpro_detalle_objetivo_direc" path="/insertarObjetivoDirectivas" scope="request" type="com.sgduni.actions.Directivas_insertarObjetivo">
+        <forward name="registrarObjetivoDirectiva" path="/paginas/directivas_insertarObjetivo.jsp"/>
+    </action>
+    
+    <action input="/" name="orpro_detalle_objetivo_direc" path="/guardarObjetivoDirectivas" scope="request" type="com.sgduni.actions.Directivas_GuardarObjetivo">
+        <forward name="registrarObjetivo" path="/llamarFormInsertDirectiva.uni"/>
+    </action>
+
+    <action input="/" name="orpro_detalle_normas_gen" path="/llamarFormInsertarNormaGenDirectivas" scope="request" type="com.sgduni.actions.Directivas_llamarFormInsertarNormaGen">
+        <forward name="registrarNormaGen" path="/paginas/directivas_insertarNormaGen.jsp"/>
+    </action>
+
+    <action input="/" name="orpro_detalle_normas_gen" path="/guardarNormaGenDirectiva" scope="request" type="com.sgduni.actions.Directiva_GuardarNormaGen">
+        <forward name="registrarNorma" path="/llamarFormInsertDirectiva.uni"/>
+    </action>
+
+    <action input="/" name="orpro_detalle_base_legal" path="/llamarFormInsertBaseLegalDirectivas" scope="request" type="com.sgduni.actions.Directivas_llamarFormInsertBaseLegal">
+        <forward name="registrarBaseLegal" path="/paginas/directivas_insertarBaseLegal.jsp"/>
+    </action>
+
+    <action input="/" name="orpro_detalle_base_legal" path="/guardarBaseLegalDirectivas" scope="request" type="com.sgduni.actions.Directivas_GuardarBaseLegal">
+        <forward name="registrarBaseLegal" path="/llamarFormInsertDirectiva.uni"/>
+    </action>
+
+    <action input="/" name="orpro_det_proc_direc" path="/llamarFormInsertProcedimientoDirectivas" scope="request" type="com.sgduni.actions.Directivas_llamarFormInsertProcedimiento">
+        <forward name="registrarProcedimiento" path="/paginas/directivas_insertarProcedimiento.jsp"/>
+    </action>
+
+    <action input="/" name="orpro_det_proc_direc" path="/insertarProcedimientoDirectivas" scope="request" type="com.sgduni.actions.Directivas_insertarProcedimiento">
+        <forward name="registrarProcedimiento" path="/llamarFormInsertDirectiva.uni"/>
+    </action>
+
+    <action input="/" name="orpro_detalle_normas_gen" path="/listarNormaGenDirectivas" scope="request" type="com.sgduni.actions.Directivas_listarNormaGen">
+        <forward name="listado" path="/paginas/directivas_listar_normas.jsp"/>
+    </action>
+
+    <action input="/" name="orpro_detalle_base_legal" path="/listarBaseLegalDirectivas" scope="request" type="com.sgduni.actions.Directivas_listarBaseLegal">
+        <forward name="listado" path="/paginas/directivas_listar_baselegal.jsp"/>
+    </action>
+
+    <action input="/" name="orpro_ta_directivas" path="/listarDirectivas" scope="request" type="com.sgduni.actions.Directivas_listar">
+         <forward name="listarDirectivas" path="/pagina_test/directivas_pagina_listar.jsp"/>
+    </action>
+
+<!--    CARGOS ESTRUCTURAS   -->
+
+<action input="/" name="orgen_ta_cargo_usuario" path="/listarCargoEstructural" scope="request" type="com.sgduni.actions.CargoEstructural_listar">
+    <forward name="listado" path="/pagina_test/cargoestruc_pagina_listar.jsp"/>
+</action>
+
+<action input="/" name="orgen_ta_cargo_usuario" path="/llamarFormInsertCargoEstruct" scope="request" type="com.sgduni.actions.CargoEstructural_llamarFormInsert">
+    <forward name="registrarCargoEstruct" path="/pagina_test/cargoestruc_pagina_insert.jsp"/>
+</action>
+
+<action input="/" name="orgen_ta_cargo_usuario" path="/insertarCargoEstructural" scope="request" type="com.sgduni.actions.CargoEstructural_insert">
+    <forward name="registrarCargoEstruct" path="/pagina_test/cargoestruc_pagina_insert.jsp"/>
+</action>
+
+<action input="/" name="orgen_ta_cargo_usuario" path="/actualizarCargoEstructural" scope="request" type="com.sgduni.actions.CargoEstructural_actualizar">
+    <forward name="exitoso" path="/pagina_test/cargoestruc_pagina_modificar.jsp"/>
+</action>
+
+<action input="/" name="orgen_ta_cargo_usuario" path="/modificarCargoEstructural" scope="request" type="com.sgduni.actions.CargoEstructural_modificar">
+    <forward name="modificarCargoClasidicado" path="/pagina_test/cargoestruc_pagina_modificar.jsp"/>
+</action>
+
+<action input="/" name="orgen_ta_cargo_usuario" path="/cambiarEstadoCargoEstructural" scope="request" type="com.sgduni.actions.ajax.CambiarEstadoCargoEstructural"/>
+
+       <!-- MENU  -->
+        <action path="/login" forward="/pagina_test/usuario_pagina_login.jsp"/><!--alcon-->
+        <action path="/menu" forward="/pagina_test/menu_pagina_principal.jsp"/><!--alcon-->
+        
+        <action path="/outlogin" forward="/paginas/outlogin.jsp"/>
+
+        <action input="/" name="orpro_ta_rof" path="/listarRof" scope="request" type="com.sgduni.actions.ROF_Listar">
+            <forward name="listar" path="/pagina_test/ROF_listar.jsp"/>
+        </action>
+
+        <action input="/" name="orpro_ta_rof" path="/nuevoRof" scope="request" type="com.sgduni.actions.ROF_Nuevo">
+            <forward name="nuevo" path="/pagina_test/ROF_nuevo.jsp"/>
+        </action>
+
+        <action input="/" name="orpro_ta_rof" path="/rofGuardar" scope="request" type="com.sgduni.actions.ROF_Guardar">
+            <forward name="guardado" path="/pagina_test/ROF_nuevo.jsp"/>
+        </action>
+
+        <action input="/" name="orpro_ta_observaciones_rof" path="/observacionDocumentosGestionRofGuardar" scope="request" type="com.sgduni.actions.Observacion_Documentos_Gestion_Rof_Guardar"/>
+
+        <action input="/" name="orpro_ta_observaciones_mapro" path="/observacionDocumentosGestionMaproGuardar" scope="request" type="com.sgduni.actions.Observacion_Documentos_Gestion_Mapro_Guardar"/>
+
+        <action input="/" name="orpro_ta_observaciones_mof" path="/observacionDocumentosGestionMofGuardar" scope="request" type="com.sgduni.actions.Observacion_Documentos_Gestion_Mof_Guardar"/>
+
+        <action input="/" name="orgen_ta_estructura_organica" path="/listarVersionesEstructuraOrganica" scope="request" type="com.sgduni.actions.Estructura_Organica_Listar_Versiones">
+            <forward name="irVerVersionesEO" path="//paginas/Estructura_Organica_Listar_Versiones.jsp"/>
+        </action>
+
+        <action input="/" name="orpro_ta_detalle_estructura" path="/organigramaVista" scope="request" type="com.sgduni.actions.Organigrama_Vista">
+           <forward name="vista" path="/paginas/Organigrama_Vista.jsp"/>
+           <forward name="vistaIfram" path="/paginas/Organigrama_Ifram_Vista.jsp"/>
+        </action>
+
+        <action path="/descargarArchivos" type="com.sgduni.actions.Descargar_Archivos"/>
+        
+        <action path="/usuarioConfigFlujoGuardar" type="com.sgduni.actions.UsuarioConfigFlujoGuardar">
+                 <forward name="nuevo" path="/pagina_test/UsuarioConfigFlujoNuevo.jsp"/>
+        </action>
+
+        <action path="/menuFuncionalidadBodyCenter" type="com.sgduni.actions.ajax.Menu_Funcionalidad_Body_Center"/>
+
+        <action path="/protocolosUsuarios" type="com.sgduni.actions.Protocolos_Usuarios_Verifica"/>
+
+        <action input="/" name="orgen_ta_funcionalidad" path="/menuFuncionalidades" scope="request" type="com.sgduni.actions.ajax.Menu_Funcionalidades"/>
+        
+           
+    <action path="/seleccionarEntidadParaUsuario" type="com.sgduni.actions.Usuario_asignar_Facultad_Dependencia">
+        <forward name="nuevo" path="/pagina_test/UsuarioCargoEstructuradoNuevo.jsp"/>
+    </action>
+    <action path="/seleccionarEntidadParaUsuarioGuardar" type="com.sgduni.actions.Usuario_asignar_Facultad_Dependencia_Guardar">
+       <forward name="nuevo" path="/pagina_test/UsuarioCargoEstructuradoNuevo.jsp"/>
+    </action>
+
+ <!-- INICIO - MODULO OFICIO CIRCULAR -->
+
+ 
+    <!-- imprime o exporta a word  -->
+    <action input="/" name="orpro_oficio_circular" path="/oficioCircularImprimir" scope="request" type="com.sgduni.actions.Oficio_Circular_Imprimir">
+        <forward name="imprimir" path="/paginas/Oficio_Circular_Imprimir.jsp"/>
+    </action>
+
+    <!-- solo guarda el oficio  -->
+    <action input="/" name="orpro_oficio_circular" path="/soloGuardarOficioCircular" scope="request" type="com.sgduni.actions.Oficio_Circular_Guardar_en_Borrador">
+         <forward name="solo_guardar" path="//pagina_test/oficio_circular_insertar.jsp"/>
+    </action>
+
+    <!-- lleva a pagina para modificar el oficio  -->
+    <action input="/" name="orpro_oficio_circular" path="/actualizarOficioCircular" scope="request" type="com.sgduni.actions.Oficio_Circular_actualizar">
+        <forward name="modificarOficio" path="//pagina_test/oficio_circular_modificar.jsp"/>
+    </action>
+
+    <!-- modifica el oficio y luego lleva a la pagina para seleccionar los receptores  -->
+    <action input="/" name="orpro_oficio_circular" path="/modificarOficioCircularyEnviarJefeOCDO" scope="request" type="com.sgduni.actions.Oficio_Circular_Modificar_Enviar_Jefe_OCDO">
+        <forward name="modificarOficioyEnviar" path="/pagina_test/oficio_circular_modificar.jsp"/>
+    </action>
+
+    <!-- solo modifica el oficio   -->
+    <action input="/" name="orpro_oficio_circular" path="/soloModificarOficioCircular" scope="request" type="com.sgduni.actions.Oficio_Circular_Modificar_en_Borrador">
+        <forward name="soloModificarOficio" path="//pagina_test/oficio_circular_modificar.jsp"/>
+    </action>
+
+    <!--AJAX - carga los combobox de cargos segun los fac-depen checked  -->
+    <action path="/cargarComboboxReceptor" type="com.sgduni.actions.ajax.CargarComboboxReceptor"/>
+
+    <!--AJAX  -->
+    <action input="/" name="orpro_oficio_circular" path="/numeroOficiosPendientes" scope="request" type="com.sgduni.actions.ajax.NumeroDocumentosOficioPendientes"/>
+
+    <action input="/" name="orpro_oficio_circular" path="/oficioCircularEnviar" scope="request" type="com.sgduni.actions.Oficio_Circular_Enviar">
+      <!-- <forward name="enviado" path="/pagina_test/oficio_circular_enviar_nuevo.jsp"/> -->
+       <forward name="enviado" path="/oficioCircularListar.uni?nump=1"/>
+    </action>
+
+    <!-- lista los oficios circulares  -->
+    <action input="/" name="orpro_oficio_circular" path="/oficioCircularListar" scope="request" type="com.sgduni.actions.Oficio_Circular_Listar">
+        <forward name="listado" path="/pagina_test/oficio_circular_listar.jsp"/>
+        <forward name="listado_pendiente" path="/pagina_test/oficio_circular_listar_bandeja_pendientes.jsp"/>
+    </action>
+
+    <!-- Guarda y da siguiente para selecionar los receptores  -->
+    <action input="/" name="orpro_oficio_circular" path="/oficioCircularGuardar" scope="request" type="com.sgduni.actions.Oficio_Circular_Guardar">
+        <forward name="guardar" path="/pagina_test/oficio_circular_enviar_nuevo.jsp"/>
+    </action>
+    
+    <!-- trae la pagina con los usuarios ocdo para luego guardar -->
+    <action input="/" name="orpro_oficio_circular" path="/oficioCircularNuevo"   scope="request" type="com.sgduni.actions.Oficio_Circular_Nuevo">
+       <forward name="nuevo" path="/pagina_test/oficio_circular_insertar.jsp"/>
+    </action> 
+   
+    <action input="/" name="orpro_oficio_circular" path="/oficioCircularVista" scope="request" type="com.sgduni.actions.Oficio_Circular_Vista">
+        <forward name="vista" path="/paginas/Oficio_Circular_Vista.jsp"/>
+    </action>
+
+    <action input="/" name="orpro_oficio_circular" path="/oficioCircularListarOficioTramitado" scope="request" type="com.sgduni.actions.Oficio_Circular_Listar_Bandeja">
+        <forward name="listado" path="/pagina_test/oficio_circular_listar_bandeja.jsp"/>
+    </action>
+ <!-- FIN - MODULO OFICIO CIRCULAR -->
+
+ <!-- INICIO - MODULO USUARIO - FUN ASIGNAR CARGO A USUARIO -->
+
+    <!-- trae la pagina para insertar los cargos a los usuario -->
+    <action input="/" name="orgen_ta_usuario_cargo" path="/SeleccionarCargoParaUsuarios" scope="request" type="com.sgduni.actions.Usuario_Cargo_llamarForm">
+        <forward name="irAlFormulario" path="//pagina_test/Usuario_Asignar_Cargo_nuevo.jsp"/>
+    </action>
+
+        <!-- guarda el cargo seleccionado  -->
+    <action input="/" name="orgen_ta_usuario_cargo" path="/guardarUsuarioCargo" scope="request" type="com.sgduni.actions.Usuario_Cargo_Guardar"/>
+<!-- FIN - MODULO USUARIO - FUN ASIGNAR CARGO A USUARIO -->
+
+    <action input="/" name="orgen_ta_estructura_organica" path="/organigramaListar" scope="request" type="com.sgduni.actions.Estructura_Organica_Listar">
+        <forward name="irlistado" path="//pagina_test/Estructura_Organica_Listar_Plantilla.jsp"/>
+    </action>
+    <action input="/" name="orgen_ta_estructura_organica" path="/guardarEstructuraOrganica" scope="request" type="com.sgduni.actions.Estructura_Organica_Guardar">
+        <forward name="irFormularioNuevo" path="//pagina_test/Estructura_Organica_CrearNuevo_Plantilla.jsp"/>
+    </action>
+    <action input="/" name="orgen_ta_estructura_organica" path="/nuevoEstructuraOrganica" scope="request" type="com.sgduni.actions.Estructura_Organica_Nuevo">
+        <forward name="irFormularioNuevo" path="//pagina_test/Estructura_Organica_CrearNuevo_Plantilla.jsp"/>
+    </action>
+
+    <action input="/" name="orgen_ta_estructura_organica" path="/actualizarEstructuraOrganica" scope="request" type="com.sgduni.actions.Estructura_Organica_Actualizar">
+        <forward name="irFormularioModificar" path="//pagina_test/Estructura_Organica_Modificar_plantilla.jsp"/>
+    </action>
+
+    <action input="/" name="orgen_ta_estructura_organica" path="/modificarEstructuraOrganica" scope="request" type="com.sgduni.actions.Estructura_Oraganica_Modificar">
+        <forward name="irFormularioModificar" path="//pagina_test/Estructura_Organica_Modificar_plantilla.jsp"/>
+    </action>
+
+    <action input="/" name="orpro_ta_observacion_estruc" path="/listarObservacionesEO" scope="request" type="com.sgduni.actions.Estructura_Organica_Lista_Observaciones">
+        <forward name="irVerObservacionesEO" path="//paginas/Estructura_Organica_Lista_Observaciones.jsp"/>
+    </action>
+
+    <action input="/" name="orpro_ta_observacion_estruc" path="/guardarObservacionEO" scope="request" type="com.sgduni.actions.Estructura_Organica_Guardar_Observaciones">
+    </action>
+    
+    <action input="/" name="orpro_ta_observacion_estruc" path="/llamarFOrmularioNuevaObservacion" scope="request" type="com.sgduni.actions.Estructura_Organica_llamarForm_Guardar">
+        <forward name="irGuardarObservacionesEO" path="//paginas/Estructura_Organica_Guardar_Observaciones.jsp"/>
+    </action>
+
+  <!-- INICIO - MODULO ROF -->
+
+    <action input="/" name="orpro_ta_rof" path="/llamarFormularioGuardarRof" scope="request" type="com.sgduni.actions.Rol_llamarFormulario_Guardar">
+        <forward name="irFormularioGuardarROF" path="//pagina_test/Rof_Guardar_1_Pagina.jsp" />
+    </action>
+    <action input="/" name="orpro_ta_rof" path="/guardarParteUnoROF" scope="request" type="com.sgduni.actions.ROF_guardar_parte1">
+        <forward name="irFormularioGuardarROFDOS" path="//pagina_test/Rof_Guardar_2_Pagina.jsp" />
+    </action>
+    <action input="/" name="orgen_ta_estructura_organica" path="/revisarEstructuraOrganica" scope="request" type="com.sgduni.actions.Estructura_Organica_Revisar">
+        <forward name="irFormularioRevisarOrg" path="//pagina_test/Estructura_Organica_Revisar_pagina.jsp" />
+    </action>
+    <action input="/" name="orpro_ta_rof" path="/insertarBaseLegalROF" scope="request" type="com.sgduni.actions.ROF_insertarBaseLegal">
+        <forward name="irFormulario" path="/paginas/ROF_insertarBaseLegal.jsp" />
+    </action>
+    
+    <action input="/" name="orgen_ta_estructura_organica" path="/adjuntarOficioaEO" scope="request" type="com.sgduni.actions.Estructura_Organica_adjuntar_oficio">
+        <forward name="irLista" path="/paginas/Estructura_Organica_Lista_oficio_adjuntar.jsp" />
+    </action>
+
+    <action input="/" name="orpro_ta_base_legal_rof" path="/listarBaseLegalRof" scope="request" type="com.sgduni.actions.ROF_insertarBaseLegal_listar">
+        <forward name="irListaBL" path="/paginas/ROF_BaseLegal_Listar.jsp" />
+    </action>
+
+    <action input="/" name="orpro_ta_rof_funciones_generales" path="/insertarFuncionesGenerales" scope="request" type="com.sgduni.actions.ROF_insertarFuncionesGenerales">
+        <forward name="irFormulario" path="/paginas/ROF_insertarFuncionGeneral.jsp" />
+    </action>
+
+    <action input="/" name="orpro_ta_rof_funciones_generales" path="/listarFuncionGeneral" scope="request" type="com.sgduni.actions.ROF_insertarFuncionGeneral_listar">
+        <forward name="irListarFG" path="/paginas/ROF_FuncionGeneral_Listar.jsp" />
+    </action>
+    
+    <action input="/" name="orgen_ta_estructura_organica" path="/adjuntarOrganigramaROF" scope="request" type="com.sgduni.actions.ROF_adjuntarOrganigrama">
+        <forward name="irListaOrganigramaAprobado" path="/paginas/ROF_Lista_Estructura_adjuntar.jsp" />
+    </action>
+
+    <action input="/" name="orpro_ta_rof" path="/guardarRofParteDos" scope="request" type="com.sgduni.actions.ROF_guardar_parte2">
+        <forward name="irFormularioTres" path="//pagina_test/Rof_Guardar_3_Pagina.jsp" />
+    </action>
+    
+    <action input="/" name="orpro_ta_rof" path="/guardarRofParteTres" scope="request" type="com.sgduni.actions.ROF_guardar_parte3">
+        <forward name="irFormularioTres" path="//pagina_test/Rof_Guardar_3_Pagina.jsp" />
+    </action>
+
+    <action input="/" name="orpro_ta_registro_rof" path="/insertarRegistroROF" scope="request" type="com.sgduni.actions.ROF_llamarFormularioAgregarRegistro">
+        <forward name="irFormRegistro" path="/paginas/ROF_Agregar_Registro.jsp" />
+    </action>
+    <action input="/" name="orpro_ta_registro_rof" path="/listarRegistroROF" scope="request"   type="com.sgduni.actions.ROF_agregarRegistro_Listar">
+        <forward name="irLisRegistro" path="/paginas/Rof_Agregar_Registro_Listar.jsp" />
+    </action>
+    <action input="/" name="orpro_ta_registro_rof" path="/agregarAreaAUnidad" scope="request" type="com.sgduni.actions.ROF_agregarAreaaUnidad">
+        <forward name="irLisArea" path="/paginas/ROF_AgregarAreaaUnidad.jsp" />
+    </action>
+    <action input="/" name="orpro_ta_rof_unidad_area" path="/listarAreaSegunUnidad" scope="request" type="com.sgduni.actions.ROF_agregarAreaUnidad_Listar">
+        <forward name="irListaArea" path="/paginas/ROF_AgregarAreaaUnidad_listar.jsp" />
+    </action>
+    <action input="/" name="orpro_ta_observacion_estruc" path="/observacionesRof" scope="request" type="com.sgduni.actions.ROF_observaciones_insertar">
+        <forward name="irPaginaObservacionRof" path="/paginas/ROF_observacion_insertar.jsp" />
+    </action>
+    <action input="/" name="orpro_ta_observaciones_rof" path="/listarObservacionesROF" scope="request" type="com.sgduni.actions.ROF_listarObservaciones">
+        <forward name="listarObsRof" path="/paginas/ROF_Observacion_listar.jsp" />
+    </action>
+    <action input="/" name="orgen_ta_usuario" path="/verDetallesUsuario" scope="request" type="com.sgduni.actions.Usuario_ver_detalles">
+         <forward name="verdetalles" path="/paginas/usuario_ver_detalle.jsp" />
+    </action>
+    <action input="/" name="orpro_oficio_circular" path="/enviarOficioalJefeOCDO" scope="request" type="com.sgduni.actions.Oficio_Circular_enviar_jefe_ocdo">
+        <forward name="enviarJefeOCDO" path="//pagina_test/oficio_circular_insertar.jsp"/>
+    </action>
+    <action input="/" name="orpro_oficio_circular" path="/guardaryAprobarOficio" scope="request" type="com.sgduni.actions.Oficio_Circular_Guardar_Aprobado">
+       <forward name="guardadoyAprobadoOficio" path="//pagina_test/oficio_circular_insertar.jsp"/>
+    </action>
+    <action input="/" name="orpro_oficio_circular" path="/modificarAprobarOficio" scope="request" type="com.sgduni.actions.Oficio_Circular_Modificar_Aprobar">
+       <forward name="modificarAprobarOficio" path="//pagina_test/oficio_circular_insertar.jsp"/> 
+    </action>
+    <action input="/" name="orpro_oficio_circular" path="/guardarEnviarJefeOcdoOficioCircular" scope="request" type="com.sgduni.actions.Oficio_Circular_Guardar_Enviar_Jefe_OCDO">
+        <forward name="enviarJefeOCDO" path="//pagina_test/oficio_circular_insertar.jsp"/>
+    </action>
+    <action input="/" name="orpro_ta_observacion_oficio" path="/crearNuevaObservacionOficio" scope="request" type="com.sgduni.actions.Oficio_Circular_Observaciones_crear">
+        <forward name="agregarcomentario" path="/paginas/Oficio_Circular_crear_Observacion.jsp" />
+    </action>
+
+    <action input="/" name="orpro_ta_observacion_oficio" path="/listarObservacionesOficio" scope="request" type="com.sgduni.actions.Oficio_Circular_Observaciones_listar">
+        <forward name="listarObservaciones" path="/paginas/Oficio_Circular_listar_observacion.jsp" />
+    </action>
+    
+    <action input="/" name="orpro_oficio_circular" path="/oficioCircularEnviarOficioDependencias" scope="request" type="com.sgduni.actions.Oficio_Circular_Enviar_Oficio_Dependencias">
+        <forward name="irAlFormularioENVIAR" path="/pagina_test/oficio_circular_enviar_nuevo.jsp"/>
+    </action>
+    
+    <action input="/" name="orpro_oficio_circular" path="/listarRespuestaDependencias" scope="request" type="com.sgduni.actions.Oficio_Circular_Listar_Respuestas">
+        <forward name="irHistorialRespuesta" path="/pagina_test/oficio_circular_listar_respuestas.jsp"/>
+    </action>
+
+    <action input="/" name="orpro_ta_observacion_oficio" path="/almacenarObservacionOficio" scope="request" type="com.sgduni.actions.Oficio_Circular_Observacion_almacenar"/>
+
+    <action input="/" name="orpro_oficio_circular" path="/aprobarPorLaJefeOcdo" scope="request" type="com.sgduni.actions.ajax.Oficio_aprobar_por_la_jefe_ocdo"/>
+    
+    <action input="/" name="orpro_oficio_circular" path="/ExportarOficioPDF" scope="request" type="com.sgduni.actions.Oficio_Circula_ExplortarPDF"/>
+
+    <action input="/" name="orgen_ta_usuario" path="/comprobarExisteCorreo" scope="request" type="com.sgduni.actions.ajax.ComprobarExisteCorreo"/>
+
+    <action input="/" name="orpro_ta_rof" path="/continuarEditandoROF" scope="request" type="com.sgduni.actions.ROF_continuar_editando"/>
+
+    <action input="/" name="orpro_ta_observaciones_rof" path="/guardarObservacionROF" scope="request" type="com.sgduni.actions.ROF_observaciones_insertar_Guardar"/>
+
+    <action input="/" name="orpro_ta_rof_unidad_area" path="/agregarAreaUnidadROF" scope="request" type="com.sgduni.actions.ROF_agregarAreaUnidad"/>
+
+    <action input="/" name="orpro_ta_registro_rof" path="/guardarRegistroROF" scope="request"  type="com.sgduni.actions.ROF_agregarRegistroRof_Guardar"/>
+
+    <action input="/" name="orpro_ta_rof_funciones_generales" path="/guardarFuncionesGenerales" scope="request" type="com.sgduni.actions.ROF_insertarFuncionesGenerales_Guardar"/>
+
+    <action input="/" name="orpro_ta_rof_directiva" path="/guardarBaseLegalROF" type="com.sgduni.actions.ROF_insertarBaseLegal_Guardar"/>
+
+    <action input="/" name="orpro_ta_rof" path="/exportarROFaPDF" type="com.sgduni.actions.ROF_generarInformePDF"/>
+
+</action-mappings>
+
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+    
+</struts-config>

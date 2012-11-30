@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+<definition name=".principal" path="/plantillas/InicioBody.jsp">   
+    <put name="BodyTop" value="/plantillas/BodyTop.jsp"/>
+    <put name="BodyCenter" value=""/>
+    <put name="BodyBottom" value="/plantillas/BodyBottom.jsp"/>
+</definition>
+
+<!-- Login -->
+<definition name=".login" extends =".principal">
+    <put name="BodyCenter" value="/paginas/login.jsp"/>
+</definition>
+
+<!-- MENU - NO EN USO -->
+<definition name=".menu" extends =".principal">
+    <put name="BodyCenter" value="/paginas/menu.jsp"/>
+</definition>
+
+<!-- USUARIO -->
+<definition name=".listaUsuario" extends =".principal">
+    <put name="BodyCenter" value="/paginas/usuario_listar.jsp"/>
+</definition>
+
+<definition name=".actualizarUsuario" extends =".principal">
+    <put name="BodyCenter" value="/paginas/usuario_modifica.jsp"/>
+</definition>
+
+<definition name=".registrarUsuario" extends =".principal">
+    <put name="BodyCenter" value="/paginas/usuario_insert.jsp"/>
+</definition>
+
+<definition name=".asignarRolUsuario" extends =".principal">
+    <put name="BodyCenter" value="/paginas/rol_Usuario_Asignar.jsp"/>
+</definition>
+
+<definition name=".asignarFunRol" extends =".principal">
+    <put name="BodyCenter" value="/paginas/rol_Fun_Asignar.jsp"/>
+</definition>
+
+<definition name=".AsignarCargoAUsuario" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Usuario_Asignar_Cargo_nuevo.jsp"/>
+</definition>
+
+<!--  ORGANO -->
+
+<definition name=".listarOrgano" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Organo_listar.jsp"/>
+</definition>
+
+<definition name=".insertarOrgano" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Organo_insertar.jsp"/>
+</definition>
+
+<definition name=".modificarOrgano" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Organo_modificar.jsp"/>
+</definition>
+
+<!-- FACULTAD -->
+
+<definition name=".listarFacultades" extends =".principal">
+    <put name="BodyCenter" value="/paginas/facultad_listar.jsp"/>
+</definition>
+
+<definition name=".insertarFacultad" extends =".principal">
+    <put name="BodyCenter" value="/paginas/facultad_insertar.jsp"/>
+</definition>
+
+<definition name=".modificarFacultad" extends =".principal">
+    <put name="BodyCenter" value="/paginas/facultad_modificar.jsp"/>
+</definition>
+
+<!-- DEPENDENCIA -->
+
+<definition name=".listarDependencias" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Dependencia_lista.jsp"/>
+</definition>
+
+<definition name=".insertDependencia" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Dependencia_insert.jsp"/>
+</definition>
+
+<definition name=".modificarDependencia" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Dependencia_modificar.jsp"/>
+</definition>
+
+<!-- CARGOS ESTRUCTURALES -->
+
+<definition name=".usuarioCargoEstructuradoNuevo" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Usuario_Cargo_Estructurado_Nuevo.jsp"/>
+</definition>
+
+<definition name=".listarCargosEstructurales" extends =".principal">
+    <put name="BodyCenter" value="/paginas/CargoEstructural_listar.jsp"/>
+</definition>
+
+<definition name=".insertarCargoEstructural" extends =".principal">
+    <put name="BodyCenter" value="/paginas/CargoEstructural_insertar.jsp"/>
+</definition>
+
+<definition name=".modificarCargoEstructural" extends =".principal">
+    <put name="BodyCenter" value="/paginas/CargoEstructural_modificar.jsp"/>
+</definition>
+
+<!-- DIRECTIVAS -->
+
+<definition name=".insertarDirectivas" extends =".principal">
+    <put name="BodyCenter" value="/paginas/directivas_insertar.jsp"/>
+</definition>
+
+<definition name=".listarDirectivas" extends =".principal">
+    <put name="BodyCenter" value="/paginas/directivas_listar.jsp"/>
+</definition>
+
+<!--  OFICIO CIRCULAR -->
+
+<definition name=".oficioCircularEnviarNuevo" extends =".principal">
+    <put name="BodyCenter" value="/paginas/ajax/Oficio_circular_enviar_nuevo.jsp"/>
+</definition>
+
+<definition name=".listaOficios" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Oficio_Circular_Listar.jsp"/>
+</definition>
+
+<definition name=".listaBandejaOficios" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Oficio_Circular_Listar_Bandeja.jsp"/>
+</definition>
+
+<definition name=".listaBandejaOficiosPendientes" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Oficio_Circular_Listar_Bandeja_Pendiente.jsp"/>
+</definition>
+
+<definition name=".listarOficiosRespuesta" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Oficio_Circular_Listar_Respuestas.jsp"/>
+</definition>
+
+
+<definition name=".modificarOficioCircular" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Oficio_Circular_Modificar.jsp"/>
+</definition>
+
+<definition name=".insertarNuevoOficioCircular" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Oficio_Circular_Insertar.jsp"/>
+</definition>
+
+<!-- ROF  -->
+
+<definition name=".rofListar" extends =".principal">
+    <put name="BodyCenter" value="/paginas/ROF_listado.jsp"/>
+</definition>
+
+<definition name=".rofNuevo" extends =".principal">
+    <put name="BodyCenter" value="/paginas/ROF_nuevo.jsp"/>
+</definition>
+
+<definition name=".guardarrofuno" extends =".principal">
+    <put name="BodyCenter" value="/paginas/ROF_Guardar_1.jsp"/>
+</definition>
+
+<definition name=".guardarrofdos" extends =".principal">
+    <put name="BodyCenter" value="/paginas/ROF_Guardar_2.jsp"/>
+</definition>
+
+<definition name=".guardarrofTres" extends =".principal">
+    <put name="BodyCenter" value="/paginas/ROF_Guardar_3.jsp"/>
+</definition>
+
+<!-- ESTRUCTURA ORGANICA -->
+
+<definition name=".modificarEstructuraOrganica" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Estructura_Organica_Modificar.jsp"/>
+</definition>
+
+<definition name=".listarEstructuraOrganica" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Estructura_Organica_Listar.jsp"/>
+</definition>
+
+<definition name=".crearNuevaEstructuraOrganica" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Estructura_Organica_CrearNuevo.jsp"/>
+</definition>
+
+<definition name=".revisarEstructuraOrganica" extends =".principal">
+    <put name="BodyCenter" value="/paginas/Estructura_Organica_Revisar.jsp"/>
+</definition>
+
+<definition name="${YOUR_DEFINITION_HERE}">
+</definition>
+
+</tiles-definitions>

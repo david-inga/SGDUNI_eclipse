@@ -1,0 +1,69 @@
+package com.sgduni.actions;
+
+import com.sgduni.dao.orgen_ta_usuario_DAO;
+import com.sgduni.dao.orpro_oficio_circular_DAO;
+import com.sgduni.forms.orgen_ta_usuario;
+import com.sgduni.forms.orpro_oficio_circular;
+import com.sgduni.utilitarios.GestorDeEmails;
+import java.util.ArrayList;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionForward;
+
+/**
+ *
+ * @author Programmer : Marco A. Estrella Cardenas
+ */
+public class Oficio_Circular_Guardar_Enviar_Jefe_OCDO extends org.apache.struts.action.Action {
+    
+    private final static String SUCCESS = "enviarJefeOCDO";
+    
+    public ActionForward execute(ActionMapping mapping, ActionForm form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception
+    {
+        HttpSession session=request.getSession();
+        int idUser     = Integer.parseInt(session.getAttribute("xid").toString());
+        int id_fac_dep = Integer.parseInt(session.getAttribute("xiddepen_facul").toString());
+        String xnomdepen_facul = session.getAttribute("xnomdepen_facul").toString();
+        String xnomus = session.getAttribute("xnomus").toString();
+        String tipo_fac_dep = session.getAttribute("xtipodepen_facul").toString();
+
+        DataSource dataSource = getDataSource(request, "DSconnection");
+        GestorDeEmails gestor = new GestorDeEmails();
+        orpro_oficio_circular_DAO dao = new orpro_oficio_circular_DAO(dataSource);
+        orgen_ta_usuario_DAO daoUsu = new orgen_ta_usuario_DAO(dataSource);
+        orpro_oficio_circular objForm = (orpro_oficio_circular)form;
+        objForm.setIn_codigo_estado(41);
+        objForm.setIn_cod_fac_dep(id_fac_dep);
+        objForm.setCh_tipo_fac_dep(tipo_fac_dep);
+
+        //correo
+        String correo = daoUsu.getCorreoElectronicoSegunID(objForm.getIn_usuario_emisor() );
+        System.out.println("correo = "+correo);
+        if(dao.guardarOficio(objForm, idUser))
+        {
+           String cuerpo = gestor.cargarMensaje(xnomdepen_facul, xnomus , "Saludos. <br/> Mediante la Presente se le comunica que se <br/> le acaba de enviar un oficio circular <br/> para su revisión.");
+           //gestor.enviarCorreoElectronico(correo, "Tramite Oficio Circular", cuerpo);
+
+           objForm.setMensaje("El Oficio fue guardado y Enviado al Jefe(a) Ocdo");
+        }
+        else
+        {
+           objForm.setMensaje("Error! lo sentimos, no se pudo guardar y/o enviar el oficio al jefe(a) ocdo ");
+           request.setAttribute("mensaje_de_exito", "Error! lo sentimos, no se pudo guardar y/o aprobar el oficio ");
+        }
+
+       ArrayList<orgen_ta_usuario> usuariosOCDO = daoUsu.getListaUsuarioOCDO(id_fac_dep,tipo_fac_dep);
+       String nuevo_codigo_generado = dao.getCodigoGenerado().trim();
+
+       request.setAttribute("nuevo_codigo_generado",nuevo_codigo_generado);
+       request.setAttribute("usuariosOCDO", usuariosOCDO);
+
+       return mapping.findForward(SUCCESS);
+    }
+}

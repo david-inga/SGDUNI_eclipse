@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : menu_top.xml
+    Created on : 13 de diciembre de 2011, 11:44
+    Author     : Sistemas
+    Description:
+        Purpose of the document follows.
+-->
+<menuAdminTop idClass="menuTop">
+  <!--MENU DEL USUARIO OCDO-->
+   <menu0>
+      <menu idMat="ini" id="inicio" nom="Inicio" enlace="menu.uni" target="" icono="imgInicio.gif"></menu>
+      <menu idMat="doc" id="submenu1" nom="Usuarios" enlace="javascript:fnl_lisSubMenu('submenu1');void(0);" target=""  icono="imgClientes.gif"></menu>
+      <menu idMat="subm2" id="submenu2" nom="Entidades" enlace="javascript:fnl_lisSubMenu('submenu2');void(0);" target=""  icono="imgProductos.gif"></menu>
+      <menu idMat="subm4" id="submenu4" nom="Organigrama" enlace="organigramaListar.uni" target="_blank"  icono="imgOrganigrama.gif"></menu>
+      <menu idMat="subm6" id="submenu6" nom="Documentos" enlace="javascript:fnl_lisSubMenu('submenu6');void(0);" target="_blank"  icono="imgDocumentos.gif"></menu>
+      <menu idMat="subm5" id="tramites" nom="Trámites" enlace="javascript:fnl_lisSubMenu('tramites');void(0);" target="" icono="imgTramites.gif"></menu>
+      <menu idMat="idMenRoles" id="inicio" nom="Protocolos" enlace="javascript:fnl_lisRoles();void(0);" target=""  icono="imgRoles.gif"></menu>
+      <menu idMat="cmdayuda" id="cmdayuda_a" nom="Ayuda" enlace="javascript:;" target="_blank"  icono="imgAyuda.gif"></menu>
+   </menu0>
+
+<!--MENU DEL USUARIO FAC O DEP-->
+
+   <menu1>
+      <menu idMat="ini" nom="Inicio" enlace="menu.uni" target=""  icono="imgInicio.gif" ></menu>
+      <menu idMat="doc" nom="Documentos" enlace="menuhtml.uni" target=""  icono="imgSitio.gif"></menu>
+      <menu idMat="est" nom="Estructura Org." enlace="organigramaDetalle.uni" target=""  icono="imgContenidos.gif"></menu>
+      <menu idMat="bandeja" nom="Bandeja" enlace="listarUsuario.uni" target="" icono="imgClientes.gif"></menu>
+      <menu idMat="subm5" id="ajustes" nom="Ajustes" enlace="javascript:;" target="" icono="imgHerramientas.gif"></menu>
+      <menu idMat="subm5" id="ajustes" nom="Cambiar Clave" enlace="javascript:;" target="" icono="imgSeguridad.gif"></menu>
+       <menu idMat="idMenRoles" nom="Roles" enlace="javascript:fnl_lisRoles();void(0);" target=""  icono="imgProductos.gif"></menu>
+  </menu1>
+
+<!--MENU DEL USUARIO FAC O DEP-->
+
+   <menu2>
+      <menu idMat="ini" nom="Inicio" enlace="menu.uni" target="" icono="imgInicio.gif"></menu>
+      <menu idMat="doc" nom="Documentos" enlace="javascript:;" target=""  icono="imgProductos.gif"></menu>
+      <menu idMat="bandeja" nom="Bandeja" enlace="javascript:;" target="" icono="imgHerramientas.gif"></menu>
+      <menu idMat="subm5" id="ajustes" nom="Ajustes" enlace="javascript:;" target="" icono="imgHerramientas.gif"></menu>
+      <menu idMat="subm5" id="CamClave" nom="Cambiar Clave" enlace="javascript:;" target="" icono="imgSeguridad.gif"></menu>
+      <menu idMat="idMenRoles" nom="Roles" enlace="javascript:fnl_lisRoles();void(0);" target=""  icono="imgProductos.gif"></menu>
+   </menu2>
+
+   <menu3>
+      <menu idMat="ini" nom="Inicio" enlace="menu.uni" target="" icono="imgInicio.gif"></menu>
+      <menu idMat="rr" nom="Resolución Rectoral" enlace="javascript:;" target=""  icono="imgProductos.gif"></menu>
+      <menu idMat="bandeja" nom="Bandeja" enlace="javascript:;" target="" icono="imgHerramientas.gif"></menu>
+      <menu idMat="subm5" id="ajustes" nom="Ajustes" enlace="javascript:;" target="" icono="imgHerramientas.gif"></menu>
+      <menu idMat="subm5" id="ajustes" nom="Cambiar Clave" enlace="javascript:;" target="" icono="imgSeguridad.gif"></menu>
+      <menu idMat="idMenRoles" nom="Roles" enlace="javascript:fnl_lisRoles();void(0);" target=""  icono="imgProductos.gif"></menu>
+   </menu3>
+
+</menuAdminTop>
