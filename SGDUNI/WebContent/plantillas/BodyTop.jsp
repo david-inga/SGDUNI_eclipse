@@ -75,7 +75,17 @@ else
            if(Rol.equals("ROL01") || Rol.equals("ROL02") || Rol.equals("ROL03") || Rol.equals("ROL04"))
            {//Visualizacion para los usuarios OCOD,USUARIO,RECTORADO, ASESORA LEGAL
            %>
+           <!--MENU DESPLEGABLE - MOF-->
              <li style="position:relative" class="li_menu_desplegable_top">
+               <a  href="#" title="Documentos MOF">
+                 <img src="fileproject/img/sistema/formularios/rofAlert.png" width="24" height="20" hspace="3" vspace="0" border="0" align="absmiddle" />
+                 MOF <strong style="color:#ef0000" id="dvg_rof_org_p"></strong>
+               </a>
+             
+                 
+                
+             </li>
+            <li style="position:relative" class="li_menu_desplegable_top">
                <a  href="listarRof.uni" title="Documentos ROF">
                  <img src="fileproject/img/sistema/formularios/rofAlert.png" width="24" height="20" hspace="3" vspace="0" border="0" align="absmiddle" />
                  ROF <strong style="color:#ef0000" id="dvg_rof_org_p"></strong>
